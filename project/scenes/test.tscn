@@ -44,8 +44,12 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=82022374]
 environment = SubResource("Environment_iyx0m")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1138045095]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1138045095 node_paths=PackedStringArray("camera", "head")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("1_errlg")
+camera = NodePath("Head/Camera3D")
+head = NodePath("Head")
+camera_smoothing = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=701410184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -70,12 +74,6 @@ requires_collisions = false
 generator = SubResource("VoxelGeneratorNoise_iyx0m")
 mesher = SubResource("VoxelMesherTransvoxel_iyx0m")
 material = SubResource("StandardMaterial3D_74lek")
-
-[node name="CharacterBody3D2" type="CharacterBody3D" parent="." unique_id=1072235262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.827161, 3.693245, 0)
-script = ExtResource("1_errlg")
-camera = NodePath("Head/Camera3D")
-head = NodePath("Head")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=689252135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5779026, 0)
