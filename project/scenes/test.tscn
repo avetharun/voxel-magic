@@ -1,12 +1,27 @@
 [gd_scene format=3 uid="uid://dsbst1y8nsp0s"]
 
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_bl13t"]
 [ext_resource type="Script" uid="uid://cahnhtrrxxoja" path="res://scripts/Player.gd" id="1_errlg"]
+
+[sub_resource type="VoxelGeneratorFlat" id="VoxelGeneratorFlat_iyx0m"]
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_74lek"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5jx5"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_bl13t")
+uv1_triplanar = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j5jx5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lpvoh"]
 
 [node name="SceneRoot" type="Node3D" unique_id=911322883]
+
+[node name="VoxelTerrain" type="VoxelTerrain" parent="." unique_id=1382215862]
+generator = SubResource("VoxelGeneratorFlat_iyx0m")
+mesher = SubResource("VoxelMesherTransvoxel_74lek")
+material_override = SubResource("StandardMaterial3D_j5jx5")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1138045095]
 script = ExtResource("1_errlg")
@@ -20,5 +35,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_lpvoh")
 
 [node name="Head" type="Node3D" parent="CharacterBody3D" unique_id=2034833240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5779026, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head" unique_id=51683464]
+
+[node name="VoxelViewer" type="VoxelViewer" parent="CharacterBody3D/Head/Camera3D" unique_id=1843383550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5779026, 0)
+requires_collisions = false
