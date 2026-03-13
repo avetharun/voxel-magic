@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://0g85kqlmfvyp"]
+
+[ext_resource type="Script" uid="uid://cahnhtrrxxoja" path="res://scripts/Player.gd" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j5jx5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lpvoh"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1976552414 node_paths=PackedStringArray("camera", "head")]
+script = ExtResource("1_3vyb7")
+camera = NodePath("Head/Camera3D")
+head = NodePath("Head")
+camera_smoothing = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=804263986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_j5jx5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=218075236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_lpvoh")
+
+[node name="Head" type="Node3D" parent="." unique_id=1623769352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1758886063]
+
+[node name="VoxelViewer" type="VoxelViewer" parent="Head/Camera3D" unique_id=860069845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5779026, 0)
+requires_collisions = false
+
+[node name="Camera3D2" type="Camera3D" parent="Head" unique_id=522628076]

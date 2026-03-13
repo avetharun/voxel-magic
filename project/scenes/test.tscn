@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsbst1y8nsp0s"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_bl13t"]
-[ext_resource type="Script" uid="uid://cahnhtrrxxoja" path="res://scripts/Player.gd" id="1_errlg"]
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/player_character_scene.tscn" id="2_bl13t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_errlg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,24 +16,18 @@ sky = SubResource("Sky_bl13t")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j5jx5"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_lpvoh"]
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bl13t"]
-frequency = 0.0023
+frequency = 0.0057
 
-[sub_resource type="VoxelGeneratorNoise" id="VoxelGeneratorNoise_iyx0m"]
-noise = SubResource("FastNoiseLite_bl13t")
-height_start = -50.0
+[sub_resource type="VoxelGeneratorNoise2D" id="VoxelGeneratorNoise2D_iyx0m"]
 height_range = 100.0
+noise = SubResource("FastNoiseLite_bl13t")
 
-[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_iyx0m"]
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_74lek"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74lek"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5jx5"]
 albedo_texture = ExtResource("1_bl13t")
 uv1_triplanar = true
-texture_filter = 0
 
 [node name="SceneRoot" type="Node3D" unique_id=911322883]
 
@@ -44,38 +38,17 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=82022374]
 environment = SubResource("Environment_iyx0m")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1138045095 node_paths=PackedStringArray("camera", "head")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-script = ExtResource("1_errlg")
-camera = NodePath("Head/Camera3D")
-head = NodePath("Head")
-camera_smoothing = 0.1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=701410184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_j5jx5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=614030493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_lpvoh")
-
-[node name="Head" type="Node3D" parent="CharacterBody3D" unique_id=2034833240]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head" unique_id=51683464]
-
-[node name="VoxelViewer" type="VoxelViewer" parent="CharacterBody3D/Head/Camera3D" unique_id=1843383550]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5779026, 0)
-requires_collisions = false
-
-[node name="Camera3D2" type="Camera3D" parent="CharacterBody3D/Head" unique_id=845561414]
-
 [node name="VoxelLodTerrain" type="VoxelLodTerrain" parent="." unique_id=505069796]
-generator = SubResource("VoxelGeneratorNoise_iyx0m")
-mesher = SubResource("VoxelMesherTransvoxel_iyx0m")
-material = SubResource("StandardMaterial3D_74lek")
+generator = SubResource("VoxelGeneratorNoise2D_iyx0m")
+mesher = SubResource("VoxelMesherTransvoxel_74lek")
+material = SubResource("StandardMaterial3D_j5jx5")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=689252135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5779026, 0)
 use_collision = true
 size = Vector3(14, 1, 16)
+
+[node name="PlayerCharacter" parent="." unique_id=307017552 instance=ExtResource("2_bl13t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1494808, -1.9730899)
+
+[node name="VoxelViewer" type="VoxelViewer" parent="PlayerCharacter" unique_id=135528877]
