@@ -148,10 +148,14 @@ func _unhandled_input(event) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(max_up_angle_view), deg_to_rad(max_down_angle_view))
 		
 func _process(delta : float) -> void:
-	tilt(delta)
+	#tilt(delta)
 	
-	bob(delta)
-	
+	#bob(delta)
+	var camera_movement : Vector2 = Input.get_vector("look_left", "look_right", "look_up", "look_down")
+	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(max_up_angle_view), deg_to_rad(max_down_angle_view))
+		
+	rotate_y(-camera_movement.x * (x_axis_sensibility))
+	camera.rotate_x(-camera_movement.y * (y_axis_sensibility))
 	zoom()
 	
 	mouse_mode()

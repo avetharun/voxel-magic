@@ -39,6 +39,13 @@ platform_floor_layers = 4278190081
 script = ExtResource("1_h128t")
 desired_move_speed_curve = SubResource("Curve_2tsxa")
 in_air_move_speed_curve = SubResource("Curve_br1r7")
+nb_jumps_in_air_allowed = 0
+move_forward_action = &"forward"
+move_backward_action = &"back"
+move_left_action = &"left"
+move_right_action = &"right"
+run_action = &"sprint"
+jump_action = &"jump"
 
 [node name="StateMachine" type="Node" parent="." unique_id=931857651 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -109,7 +116,6 @@ debug_shape_custom_color = Color(0, 0, 0.956863, 1)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=382546849]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("16_5jm78")
 metadata/_edit_use_anchors_ = true
 
@@ -123,8 +129,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=2004601024]
+anchors_preset = -1
+anchor_right = 0.065104164
+anchor_bottom = 0.24074075
 offset_right = 248.0
 offset_bottom = 252.0
+scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
