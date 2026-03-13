@@ -20,12 +20,316 @@ sky = SubResource("Sky_bl13t")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bl13t"]
-frequency = 0.0057
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_ou8gc"]
+period = 148.8001
 
-[sub_resource type="VoxelGeneratorNoise2D" id="VoxelGeneratorNoise2D_ygy3j"]
-height_range = 100.0
-noise = SubResource("FastNoiseLite_bl13t")
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_0ig4v"]
+period = 64.0001
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_vabsh"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_fio6k"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_8em8x"]
+noise_type = 2
+fractal_type = 3
+fractal_gain = 0.44
+cellular_distance_function = 0
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_kf3o1"]
+noise_type = 5
+period = 128.0001
+fractal_gain = 0.25
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_tamty"]
+period = 148.8001
+
+[sub_resource type="VoxelGeneratorGraph" id="VoxelGeneratorGraph_0ig4v"]
+graph_data = {
+"connections": [[2, 0, 41, 1], [68, 0, 54, 0], [39, 0, 40, 0], [40, 0, 41, 0], [41, 0, 42, 0], [41, 0, 42, 1], [42, 0, 43, 0], [43, 0, 44, 0], [44, 0, 49, 0], [45, 0, 46, 0], [45, 0, 46, 1], [45, 0, 48, 0], [48, 0, 44, 1], [49, 0, 87, 0], [49, 0, 86, 0], [50, 0, 51, 0], [51, 0, 52, 0], [52, 0, 49, 1], [53, 0, 68, 0], [54, 0, 70, 1], [55, 0, 76, 0], [70, 0, 55, 1], [71, 0, 73, 1], [72, 0, 80, 1], [73, 0, 72, 0], [76, 0, 4, 0], [77, 0, 79, 0], [79, 0, 80, 0], [80, 0, 82, 0], [82, 0, 70, 0], [86, 0, 76, 1], [88, 0, 99, 0], [89, 0, 90, 0], [90, 0, 91, 0], [91, 0, 92, 0], [91, 0, 92, 1], [92, 0, 93, 0], [99, 0, 90, 1]],
+"nodes": {
+"1": {
+"auto_connect": false,
+"gui_position": Vector2(640, 420),
+"type": "InputX"
+},
+"101": {
+"a": 0.0,
+"auto_connect": false,
+"b": 0.0,
+"gui_position": Vector2(2720, -380),
+"type": "Subtract"
+},
+"2": {
+"auto_connect": false,
+"gui_position": Vector2(960, -60),
+"type": "InputY"
+},
+"3": {
+"auto_connect": false,
+"gui_position": Vector2(640, 420),
+"type": "InputZ"
+},
+"39": {
+"auto_connect": true,
+"gui_position": Vector2(900, -160),
+"noise": SubResource("ZN_FastNoiseLite_ou8gc"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"4": {
+"auto_connect": true,
+"gui_position": Vector2(3920, 60),
+"type": "OutputSDF"
+},
+"40": {
+"auto_connect": false,
+"b": 20.0,
+"gui_position": Vector2(1060, -160),
+"type": "Multiply"
+},
+"41": {
+"auto_connect": false,
+"gui_position": Vector2(1200, -160),
+"type": "Add"
+},
+"42": {
+"auto_connect": false,
+"gui_position": Vector2(1340, -160),
+"type": "Multiply"
+},
+"43": {
+"auto_connect": false,
+"b": 0.05,
+"gui_position": Vector2(1480, -160),
+"type": "Multiply"
+},
+"44": {
+"auto_connect": false,
+"gui_position": Vector2(1940, 200),
+"type": "Add"
+},
+"45": {
+"auto_connect": true,
+"gui_position": Vector2(1180, 360),
+"noise": SubResource("ZN_FastNoiseLite_0ig4v"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"46": {
+"auto_connect": false,
+"gui_position": Vector2(1440, 280),
+"type": "Multiply"
+},
+"48": {
+"auto_connect": false,
+"b": 0.5,
+"gui_position": Vector2(1620, 360),
+"type": "Subtract"
+},
+"49": {
+"auto_connect": false,
+"gui_position": Vector2(2100, 240),
+"type": "Add"
+},
+"50": {
+"auto_connect": true,
+"gui_position": Vector2(1340, 520),
+"noise": SubResource("ZN_FastNoiseLite_vabsh"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"51": {
+"auto_connect": false,
+"b": 2.0,
+"gui_position": Vector2(1520, 520),
+"type": "Multiply"
+},
+"52": {
+"auto_connect": false,
+"b": 0.025,
+"gui_position": Vector2(1660, 520),
+"type": "Max"
+},
+"53": {
+"auto_connect": true,
+"gui_position": Vector2(1760, -140),
+"noise": SubResource("ZN_FastNoiseLite_fio6k"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"54": {
+"auto_connect": false,
+"b": 3.0,
+"gui_position": Vector2(2000, -180),
+"type": "Multiply"
+},
+"55": {
+"auto_connect": true,
+"gui_position": Vector2(3160, -160),
+"type": "SdfPlane",
+"y": 0.0
+},
+"58": {
+"auto_connect": false,
+"gui_position": Vector2(900, -260),
+"gui_size": Vector2(684.3233, 48.69702),
+"name": &"Plate caves",
+"text": "",
+"type": "Comment"
+},
+"68": {
+"auto_connect": false,
+"b": 17.0,
+"gui_position": Vector2(1920, -60),
+"type": "Add"
+},
+"70": {
+"auto_connect": false,
+"gui_position": Vector2(2260, -140),
+"type": "Add"
+},
+"71": {
+"auto_connect": true,
+"gui_position": Vector2(1180, -500),
+"noise": SubResource("ZN_FastNoiseLite_8em8x"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"72": {
+"auto_connect": false,
+"b": 65.0,
+"gui_position": Vector2(1480, -520),
+"type": "Multiply"
+},
+"73": {
+"a": 1.0,
+"auto_connect": false,
+"gui_position": Vector2(1340, -520),
+"type": "Add"
+},
+"76": {
+"auto_connect": false,
+"gui_position": Vector2(3520, 80),
+"smoothness": 0.0,
+"type": "SdfSmoothSubtract"
+},
+"77": {
+"auto_connect": true,
+"gui_position": Vector2(1160, -620),
+"noise": SubResource("ZN_FastNoiseLite_kf3o1"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"79": {
+"auto_connect": false,
+"edge0": 0.0,
+"edge1": 1.0,
+"gui_position": Vector2(1340, -600),
+"type": "Smoothstep"
+},
+"80": {
+"auto_connect": false,
+"gui_position": Vector2(1620, -600),
+"type": "Multiply"
+},
+"82": {
+"auto_connect": false,
+"gui_position": Vector2(1740, -600),
+"type": "Abs"
+},
+"83": {
+"auto_connect": false,
+"gui_position": Vector2(1160, -700),
+"gui_size": Vector2(674.3163, 46.034973),
+"name": &"Mountains",
+"text": "",
+"type": "Comment"
+},
+"86": {
+"auto_connect": false,
+"b": 0.33,
+"gui_position": Vector2(2280, 160),
+"type": "Add"
+},
+"87": {
+"auto_connect": false,
+"b": 100.0,
+"gui_position": Vector2(2480, 340),
+"type": "Multiply"
+},
+"88": {
+"auto_connect": false,
+"gui_position": Vector2(1860, -720),
+"type": "InputY"
+},
+"89": {
+"auto_connect": true,
+"gui_position": Vector2(1800, -820),
+"noise": SubResource("ZN_FastNoiseLite_tamty"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"90": {
+"auto_connect": false,
+"gui_position": Vector2(1960, -820),
+"type": "Multiply"
+},
+"91": {
+"auto_connect": false,
+"b": 20.0,
+"gui_position": Vector2(2100, -820),
+"type": "Add"
+},
+"92": {
+"auto_connect": false,
+"gui_position": Vector2(2240, -820),
+"type": "Multiply"
+},
+"93": {
+"auto_connect": false,
+"b": 0.01,
+"gui_position": Vector2(2380, -820),
+"type": "Multiply"
+},
+"94": {
+"auto_connect": false,
+"gui_position": Vector2(1800, -900),
+"gui_size": Vector2(684.3233, 48.69702),
+"name": &"Rivers",
+"text": "",
+"type": "Comment"
+},
+"96": {
+"a": 0.0,
+"auto_connect": false,
+"b": 0.0,
+"gui_position": Vector2(2880, -220),
+"type": "Subtract"
+},
+"97": {
+"auto_connect": true,
+"gui_position": Vector2(2565.2012, -677.6003),
+"height": 0.0,
+"type": "SdfPlane",
+"y": 0.0
+},
+"99": {
+"auto_connect": false,
+"b": 16.0,
+"gui_position": Vector2(1960, -700),
+"type": "Add"
+}
+},
+"version": 2
+}
 
 [sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_dm78r"]
 
@@ -71,17 +375,19 @@ shadow_enabled = true
 environment = SubResource("Environment_krij7")
 
 [node name="VoxelLodTerrain" type="VoxelLodTerrain" parent="." unique_id=1461891438]
-generator = SubResource("VoxelGeneratorNoise2D_ygy3j")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+generator = SubResource("VoxelGeneratorGraph_0ig4v")
 mesher = SubResource("VoxelMesherTransvoxel_dm78r")
 material = SubResource("StandardMaterial3D_q8t4i")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1982527116]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5779026, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100.943756, 0)
 use_collision = true
 size = Vector3(14, 1, 16)
 
 [node name="PlayerCharacter" parent="." unique_id=307017552 instance=ExtResource("5_tamty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1494808, -1.9730899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -99.277306, -1.9730899)
 inventory_data = ExtResource("6_8em8x")
 
 [node name="VoxelViewer" type="VoxelViewer" parent="PlayerCharacter" unique_id=698351579]
+enabled_in_editor = true
