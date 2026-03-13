@@ -85,5 +85,32 @@ size = Vector3(14, 1, 16)
 [node name="PlayerCharacter" parent="." unique_id=307017552 instance=ExtResource("2_bl13t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1494808, -1.9730899)
 inventory_data = ExtResource("4_74lek")
+max_desired_move_speed = 30.0
+hit_ground_cooldown = 0.1
+bunny_hop_dms_incre = 3.0
+auto_bunny_hop = false
+base_hitbox_height = 2.0
+base_model_height = 1.0
+height_change_duration = 0.15
+crouch_speed = 6.0
+crouch_accel = 12.0
+crouch_deccel = 11.0
+continious_crouch = false
+crouch_hitbox_height = 1.2
+crouch_model_height = 0.6
+walk_speed = 9.0
+walk_accel = 11.0
+walk_deccel = 10.0
+run_speed = 12.0
+run_accel = 10.0
+run_deccel = 9.0
+continious_run = false
+jump_height = 2.0
+jump_time_to_peak = 0.3
+jump_time_to_fall = 0.25
+jump_cooldown = 0.25
+coyote_jump_cooldown = 0.3
+crouch_action = &"play_char_crouch_action"
+check_on_ready_if_inputs_registered = true
 
 [node name="VoxelViewer" type="VoxelViewer" parent="PlayerCharacter" unique_id=135528877]

@@ -7,6 +7,10 @@ signal toggle_inventory
 @export_group("Inventory Variables")
 @export var inventory_data: InventoryData
 
+@export_group("Terrain Interaction Variables")
+@export var voxel_terrain: VoxelLodTerrain
+@onready var voxel_tool: VoxelTool = voxel_terrain.get_voxel_tool()
+
 @export_group("Movement variables")
 var move_speed: float
 var move_accel: float
