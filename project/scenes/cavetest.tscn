@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dwpuigxviuagg"]
+
+[ext_resource type="Script" uid="uid://u62fhga3j438" path="res://scenes/inventory_interface.gd" id="1_ou8gc"]
+[ext_resource type="PackedScene" uid="uid://ddrt16pme3fl3" path="res://scripts/Inventory/inventory.tscn" id="2_0ig4v"]
+[ext_resource type="PackedScene" uid="uid://cd8bpqekm44d1" path="res://scripts/Inventory/slot.tscn" id="3_vabsh"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_fio6k"]
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/player_character_scene.tscn" id="5_tamty"]
+[ext_resource type="Resource" uid="uid://0t48ya0ejwwg" path="res://scripts/Inventory/player_inventory.tres" id="6_8em8x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kf3o1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bl13t"]
+sky_material = SubResource("ProceduralSkyMaterial_kf3o1")
+
+[sub_resource type="Environment" id="Environment_krij7"]
+background_mode = 2
+sky = SubResource("Sky_bl13t")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bl13t"]
+frequency = 0.0057
+
+[sub_resource type="VoxelGeneratorNoise2D" id="VoxelGeneratorNoise2D_ygy3j"]
+height_range = 100.0
+noise = SubResource("FastNoiseLite_bl13t")
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_dm78r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8t4i"]
+albedo_texture = ExtResource("4_fio6k")
+uv1_triplanar = true
+
+[node name="Cavetest" type="Node3D" unique_id=256993951]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1928333629]
+
+[node name="InventoryInterface" type="Control" parent="UI" unique_id=1292373761]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ou8gc")
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" unique_id=946131378 instance=ExtResource("2_0ig4v")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="GrabbedSlot" parent="UI/InventoryInterface" unique_id=724585802 instance=ExtResource("3_vabsh")]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.47058824)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1543637905]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=759217101]
+environment = SubResource("Environment_krij7")
+
+[node name="VoxelLodTerrain" type="VoxelLodTerrain" parent="." unique_id=1461891438]
+generator = SubResource("VoxelGeneratorNoise2D_ygy3j")
+mesher = SubResource("VoxelMesherTransvoxel_dm78r")
+material = SubResource("StandardMaterial3D_q8t4i")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1982527116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5779026, 0)
+use_collision = true
+size = Vector3(14, 1, 16)
+
+[node name="PlayerCharacter" parent="." unique_id=307017552 instance=ExtResource("5_tamty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1494808, -1.9730899)
+inventory_data = ExtResource("6_8em8x")
+
+[node name="VoxelViewer" type="VoxelViewer" parent="PlayerCharacter" unique_id=698351579]
