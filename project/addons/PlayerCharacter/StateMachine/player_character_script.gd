@@ -2,6 +2,11 @@ extends CharacterBody3D
 
 class_name PlayerCharacter
 
+signal toggle_inventory
+
+@export_group("Inventory Variables")
+@export var inventory_data: InventoryData
+
 @export_group("Movement variables")
 var move_speed: float
 var move_accel: float
@@ -177,3 +182,9 @@ func tween_model_height(state_model_height : float) -> void:
 	else:
 		model_tween.tween_interval(0.1)
 	model_tween.finished.connect(Callable(model_tween, "kill"))
+
+
+func _unhandled_input(event: InputEvent):
+	if Input.is_action_just_pressed("inventory"):
+		toggle_inventory.emit()
+	pass

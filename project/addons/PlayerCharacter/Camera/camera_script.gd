@@ -158,7 +158,6 @@ func _process(delta : float) -> void:
 	camera.rotate_x(-camera_movement.y * (y_axis_sensibility))
 	zoom()
 	
-	mouse_mode()
 	
 func tilt(delta : float) -> void:
 	if enable_forward_tilt:

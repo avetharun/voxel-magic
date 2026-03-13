@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://m2v5fbygcckr"]
+
+[ext_resource type="Script" uid="uid://cbgccmrjavl8e" path="res://scripts/Inventory/Item/item_data.gd" id="1_p72mu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p72mu"]
+load_path = "res://.godot/imported/#1 - Transparent Icons.png-30ff831e7a2ac4990dfbb93e908597c7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kat3w"]
+atlas = SubResource("CompressedTexture2D_p72mu")
+region = Rect2(0, 448, 32, 32)
+
+[resource]
+script = ExtResource("1_p72mu")
+name = "Apple"
+description = "Gives +0.2 hp regen/s for 130 seconds when eaten"
+stackable = true
+texture = SubResource("AtlasTexture_kat3w")
+metadata/_custom_type_script = "uid://cbgccmrjavl8e"
