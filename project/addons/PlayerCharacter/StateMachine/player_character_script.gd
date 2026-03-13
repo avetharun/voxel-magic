@@ -135,7 +135,7 @@ func input_actions_check() -> void:
 				push_warning("'{input}' missing in InputMap, or input action wrongly named in the editor.\nAdding the '{input}' to runtime InputMap temporarily with the key/s: {keys}"
 				.format({"input": input_action, "keys": String(", ").join(key_names)}))
 				
-				InputMap.add_action(input_action)
+				#InputMap.add_action(input_action)
 				for keycode in default_input_actions[input_action]:
 					var input_event_key = InputEventKey.new()
 					input_event_key.physical_keycode = keycode
