@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Apothyosis"
-run/main_scene="uid://dwpuigxviuagg"
+run/main_scene="uid://caekwo05xg7ii"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

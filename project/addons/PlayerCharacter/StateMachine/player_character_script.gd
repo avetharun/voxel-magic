@@ -9,7 +9,7 @@ signal toggle_inventory
 
 @export_group("Terrain Interaction Variables")
 @export var voxel_terrain: VoxelLodTerrain
-@onready var voxel_tool: VoxelTool = voxel_terrain.get_voxel_tool()
+#@onready var voxel_tool: VoxelTool = voxel_terrain.get_voxel_tool()
 
 @export_group("Movement variables")
 var move_speed: float

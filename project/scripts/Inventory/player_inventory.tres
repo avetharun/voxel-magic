@@ -3,11 +3,17 @@
 [ext_resource type="Script" uid="uid://b42xswd6yab55" path="res://scripts/Inventory/inventory_data.gd" id="1_0ue8w"]
 [ext_resource type="Script" uid="uid://dynsmxrsmg7dw" path="res://scripts/Inventory/slot_data.gd" id="2_gaidx"]
 [ext_resource type="Resource" uid="uid://br407wadsh5iu" path="res://scripts/Inventory/Item/Items/basic_spellbook.tres" id="3_hs2ks"]
+[ext_resource type="Resource" uid="uid://d1kny2grgmalr" path="res://scripts/Inventory/Item/Items/stick.tres" id="4_8kcq4"]
 [ext_resource type="Resource" uid="uid://m2v5fbygcckr" path="res://scripts/Inventory/Item/Items/apple.tres" id="4_ylhsh"]
 
 [sub_resource type="Resource" id="Resource_8kcq4"]
 script = ExtResource("2_gaidx")
 item_data = ExtResource("3_hs2ks")
+metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
+
+[sub_resource type="Resource" id="Resource_pkg7s"]
+script = ExtResource("2_gaidx")
+item_data = ExtResource("4_8kcq4")
 metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
 
 [sub_resource type="Resource" id="Resource_e86by"]
@@ -24,5 +30,5 @@ metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
 
 [resource]
 script = ExtResource("1_0ue8w")
-slot_datas = Array[ExtResource("2_gaidx")]([SubResource("Resource_8kcq4"), null, SubResource("Resource_e86by"), null, SubResource("Resource_hs2ks"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("2_gaidx")]([SubResource("Resource_8kcq4"), SubResource("Resource_pkg7s"), SubResource("Resource_e86by"), null, SubResource("Resource_hs2ks"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://b42xswd6yab55"

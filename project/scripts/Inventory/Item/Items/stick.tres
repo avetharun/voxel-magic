@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d1kny2grgmalr"]
+
+[ext_resource type="Script" uid="uid://cbgccmrjavl8e" path="res://scripts/Inventory/Item/item_data.gd" id="1_fqcvp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sfnxj"]
+load_path = "res://.godot/imported/#1 - Transparent Icons.png-30ff831e7a2ac4990dfbb93e908597c7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqcvp"]
+atlas = SubResource("CompressedTexture2D_sfnxj")
+region = Rect2(0, 544, 32, 32)
+
+[resource]
+script = ExtResource("1_fqcvp")
+name = "stick"
+description = "A stick"
+stackable = true
+texture = SubResource("AtlasTexture_fqcvp")
+metadata/_custom_type_script = "uid://cbgccmrjavl8e"
