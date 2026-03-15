@@ -10,6 +10,8 @@ signal toggle_inventory
 @export_group("Terrain Interaction Variables")
 @export var voxel_terrain: VoxelLodTerrain
 #@onready var voxel_tool: VoxelTool = voxel_terrain.get_voxel_tool()
+@onready var interact_ray = $CameraHolder/Camera/InteractRay
+@onready var camera = interact_ray.get_parent()
 
 @export_group("Movement variables")
 var move_speed: float
@@ -191,4 +193,14 @@ func tween_model_height(state_model_height : float) -> void:
 func _unhandled_input(event: InputEvent):
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
-	pass
+	if Input.is_action_just_pressed("use"):
+		interact()
+
+
+func interact() -> void:
+	if interact_ray.is_colliding():
+		interact_ray.get_collider().player_interact()
+
+func get_drop_position()->Vector3:
+	var direction = -camera.global_transform.basis.z
+	return camera.global_position + direction

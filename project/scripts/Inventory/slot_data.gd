@@ -7,14 +7,15 @@ const MAX_STACK_SIZE: int = 99
 @export_range(1,MAX_STACK_SIZE) var quantity:int = 1: set = set_quantity
 
 func can_merge_with(other_slot_data: SlotData) -> bool:
-	return item_data == other_slot_data.item_data and item_data.stackable and quantity  < MAX_STACK_SIZE
+	return item_data == other_slot_data.item_data and item_data.stackable and quantity  <= MAX_STACK_SIZE
 
 func can_fully_merge_with(other_slot_data: SlotData) -> bool:
-	return item_data == other_slot_data.item_data and item_data.stackable and quantity + other_slot_data.quantity < MAX_STACK_SIZE
+	return item_data == other_slot_data.item_data and item_data.stackable and quantity + other_slot_data.quantity <= MAX_STACK_SIZE
 
 func fully_merge_with(other_slot_data: SlotData) -> void:
 	quantity += other_slot_data.quantity
 
+#take one from the currently held stack, create a new SlotData at the selected inventory slot index
 func create_single_slot_data() -> SlotData:
 	var new_slot_data = duplicate()
 	new_slot_data.quantity = 1

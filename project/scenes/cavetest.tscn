@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://dwpuigxviuagg"]
 
-[ext_resource type="Script" uid="uid://wx7yinbgwx6u" path="res://scenes/main.gd" id="1_0ig4v"]
-[ext_resource type="Script" uid="uid://u62fhga3j438" path="res://scenes/inventory_interface.gd" id="1_ou8gc"]
-[ext_resource type="PackedScene" uid="uid://ddrt16pme3fl3" path="res://scripts/Inventory/inventory.tscn" id="2_0ig4v"]
-[ext_resource type="PackedScene" uid="uid://cd8bpqekm44d1" path="res://scripts/Inventory/slot.tscn" id="3_vabsh"]
+[ext_resource type="Script" uid="uid://wx7yinbgwx6u" path="res://scripts/main.gd" id="1_0ig4v"]
+[ext_resource type="PackedScene" uid="uid://gdo5v7qc54gy" path="res://scenes/user_interface.tscn" id="2_tamty"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_fio6k"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/player_character_scene.tscn" id="5_tamty"]
 [ext_resource type="Resource" uid="uid://0t48ya0ejwwg" path="res://scripts/Inventory/player_inventory.tres" id="6_8em8x"]
+[ext_resource type="PackedScene" uid="uid://dffep30cmfao1" path="res://scenes/Interactable/chest.tscn" id="8_vabsh"]
+[ext_resource type="Script" uid="uid://b42xswd6yab55" path="res://scripts/Inventory/inventory_data.gd" id="9_kf3o1"]
+[ext_resource type="Script" uid="uid://dynsmxrsmg7dw" path="res://scripts/Inventory/slot_data.gd" id="10_krij7"]
+[ext_resource type="PackedScene" uid="uid://tnyppg70ee8u" path="res://scripts/Inventory/Item/pick_up/pickup.tscn" id="11_8em8x"]
+[ext_resource type="Resource" uid="uid://d1kny2grgmalr" path="res://scripts/Inventory/Item/Items/stick.tres" id="11_ygy3j"]
+[ext_resource type="Resource" uid="uid://m2v5fbygcckr" path="res://scripts/Inventory/Item/Items/apple.tres" id="12_dm78r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kf3o1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -32,14 +36,14 @@ period = 64.0001
 [sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_fio6k"]
 
 [sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_8em8x"]
-noise_type = 2
+noise_type = 3
 fractal_type = 3
+fractal_octaves = 5
 fractal_gain = 0.44
 cellular_distance_function = 0
 
 [sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_kf3o1"]
 noise_type = 5
-period = 128.0001
 fractal_gain = 0.25
 
 [sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_tamty"]
@@ -47,12 +51,34 @@ period = 148.8001
 
 [sub_resource type="VoxelGeneratorGraph" id="VoxelGeneratorGraph_0ig4v"]
 graph_data = {
-"connections": [[41, 0, 42, 0], [41, 0, 42, 1], [2, 0, 41, 1], [39, 0, 40, 0], [68, 0, 54, 0], [40, 0, 41, 0], [42, 0, 43, 0], [43, 0, 44, 0], [44, 0, 49, 0], [45, 0, 46, 0], [45, 0, 46, 1], [46, 0, 48, 0], [48, 0, 44, 1], [49, 0, 86, 0], [50, 0, 51, 0], [51, 0, 52, 0], [52, 0, 49, 1], [53, 0, 68, 0], [54, 0, 70, 1], [55, 0, 76, 0], [70, 0, 55, 1], [71, 0, 73, 0], [72, 0, 80, 1], [73, 0, 72, 0], [76, 0, 4, 0], [77, 0, 79, 0], [79, 0, 80, 0], [80, 0, 82, 0], [82, 0, 70, 0], [86, 0, 76, 1], [88, 0, 99, 0], [89, 0, 90, 0], [90, 0, 91, 0], [91, 0, 92, 0], [91, 0, 92, 1], [92, 0, 93, 0], [99, 0, 90, 1]],
+"connections": [[100, 0, 101, 0], [101, 0, 71, 0], [101, 0, 77, 0], [101, 0, 53, 0], [102, 0, 103, 0], [39, 0, 40, 0], [103, 0, 71, 1], [103, 0, 77, 1], [103, 0, 53, 1], [2, 0, 41, 1], [68, 0, 54, 0], [40, 0, 41, 0], [41, 0, 42, 0], [41, 0, 42, 1], [42, 0, 43, 0], [43, 0, 44, 0], [44, 0, 49, 0], [45, 0, 46, 0], [45, 0, 46, 1], [46, 0, 48, 0], [48, 0, 44, 1], [49, 0, 86, 0], [50, 0, 51, 0], [51, 0, 52, 0], [52, 0, 49, 1], [53, 0, 68, 0], [54, 0, 70, 1], [55, 0, 76, 0], [70, 0, 55, 1], [71, 0, 73, 0], [72, 0, 80, 1], [73, 0, 72, 0], [76, 0, 4, 0], [77, 0, 79, 0], [79, 0, 80, 0], [80, 0, 82, 0], [82, 0, 70, 0], [86, 0, 76, 1], [88, 0, 99, 0], [89, 0, 90, 0], [90, 0, 91, 0], [91, 0, 92, 0], [91, 0, 92, 1], [92, 0, 93, 0], [99, 0, 90, 1]],
 "nodes": {
 "1": {
 "auto_connect": false,
 "gui_position": Vector2(640, 420),
 "type": "InputX"
+},
+"100": {
+"auto_connect": false,
+"gui_position": Vector2(1620, -320),
+"type": "InputX"
+},
+"101": {
+"auto_connect": false,
+"b": 2.0,
+"gui_position": Vector2(1880, -320),
+"type": "Divide"
+},
+"102": {
+"auto_connect": false,
+"gui_position": Vector2(1597.2004, -217.80006),
+"type": "InputZ"
+},
+"103": {
+"auto_connect": false,
+"b": 2.0,
+"gui_position": Vector2(1860, -220),
+"type": "Divide"
 },
 "2": {
 "auto_connect": false,
@@ -152,9 +178,7 @@ graph_data = {
 "auto_connect": true,
 "gui_position": Vector2(2440, -80),
 "noise": SubResource("ZN_FastNoiseLite_fio6k"),
-"type": "FastNoise2D",
-"x": 0.0,
-"y": 0.0
+"type": "FastNoise2D"
 },
 "54": {
 "auto_connect": false,
@@ -184,20 +208,18 @@ graph_data = {
 },
 "70": {
 "auto_connect": false,
-"gui_position": Vector2(2940, -120),
+"gui_position": Vector2(3000, -160),
 "type": "Add"
 },
 "71": {
 "auto_connect": true,
 "gui_position": Vector2(2040, -220),
 "noise": SubResource("ZN_FastNoiseLite_8em8x"),
-"type": "FastNoise2D",
-"x": 0.0,
-"y": 0.0
+"type": "FastNoise2D"
 },
 "72": {
 "auto_connect": false,
-"b": 65.0,
+"b": 165.0,
 "gui_position": Vector2(2420, -220),
 "type": "Multiply"
 },
@@ -217,9 +239,7 @@ graph_data = {
 "auto_connect": true,
 "gui_position": Vector2(2200, -320),
 "noise": SubResource("ZN_FastNoiseLite_kf3o1"),
-"type": "FastNoise2D",
-"x": 0.0,
-"y": 0.0
+"type": "FastNoise2D"
 },
 "79": {
 "auto_connect": false,
@@ -230,12 +250,12 @@ graph_data = {
 },
 "80": {
 "auto_connect": false,
-"gui_position": Vector2(2620, -280),
+"gui_position": Vector2(2620, -320),
 "type": "Multiply"
 },
 "82": {
 "auto_connect": false,
-"gui_position": Vector2(2760, -280),
+"gui_position": Vector2(2880, -280),
 "type": "Abs"
 },
 "86": {
@@ -310,36 +330,31 @@ graph_data = {
 albedo_texture = ExtResource("4_fio6k")
 uv1_triplanar = true
 
+[sub_resource type="Resource" id="Resource_q8t4i"]
+script = ExtResource("10_krij7")
+item_data = ExtResource("11_ygy3j")
+quantity = 12
+metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
+
+[sub_resource type="Resource" id="Resource_3wece"]
+script = ExtResource("10_krij7")
+item_data = ExtResource("12_dm78r")
+metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
+
+[sub_resource type="Resource" id="Resource_q4en3"]
+script = ExtResource("9_kf3o1")
+slot_datas = Array[ExtResource("10_krij7")]([SubResource("Resource_q8t4i"), null, null, SubResource("Resource_3wece"), null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://b42xswd6yab55"
+
+[sub_resource type="Resource" id="Resource_8em8x"]
+script = ExtResource("10_krij7")
+item_data = ExtResource("11_ygy3j")
+metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
+
 [node name="Cavetest" type="Node3D" unique_id=256993951]
 script = ExtResource("1_0ig4v")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1928333629]
-
-[node name="InventoryInterface" type="Control" parent="UI" unique_id=1292373761]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_ou8gc")
-
-[node name="PlayerInventory" parent="UI/InventoryInterface" unique_id=946131378 instance=ExtResource("2_0ig4v")]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 50.0
-
-[node name="GrabbedSlot" parent="UI/InventoryInterface" unique_id=724585802 instance=ExtResource("3_vabsh")]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 1, 1, 0.47058824)
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+[node name="UI" parent="." unique_id=693968617 instance=ExtResource("2_tamty")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1543637905]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -365,3 +380,17 @@ inventory_data = ExtResource("6_8em8x")
 
 [node name="VoxelViewer" type="VoxelViewer" parent="PlayerCharacter" unique_id=698351579]
 enabled_in_editor = true
+
+[node name="Chest" parent="." unique_id=1231050297 instance=ExtResource("8_vabsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7901144, -45.411304, -3.6647713)
+inventory_data = SubResource("Resource_q4en3")
+
+[node name="Pickup" parent="." unique_id=1766522287 instance=ExtResource("11_8em8x")]
+transform = Transform3D(0.14473619, 0, 0.9894703, 0, 1, 0, -0.9894703, 0, 0.14473619, -3.0077899, -44.94981, 0.41384196)
+slot_data = SubResource("Resource_8em8x")
+
+[connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
+[connection signal="visibility_changed" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_visibility_changed"]
+
+[editable path="UI"]

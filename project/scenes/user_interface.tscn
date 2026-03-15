@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://gdo5v7qc54gy"]
+
+[ext_resource type="Script" uid="uid://u62fhga3j438" path="res://scripts/Inventory/inventory_interface.gd" id="1_y1h3b"]
+[ext_resource type="PackedScene" uid="uid://ddrt16pme3fl3" path="res://scripts/Inventory/inventory.tscn" id="2_jbsfc"]
+[ext_resource type="PackedScene" uid="uid://cd8bpqekm44d1" path="res://scripts/Inventory/slot.tscn" id="3_cufge"]
+
+[node name="UI" type="CanvasLayer" unique_id=693968617]
+
+[node name="InventoryInterface" type="Control" parent="." unique_id=1478464566]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y1h3b")
+
+[node name="PlayerInventory" parent="InventoryInterface" unique_id=946131378 instance=ExtResource("2_jbsfc")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="ExternalInventory" parent="InventoryInterface" unique_id=1825336126 instance=ExtResource("2_jbsfc")]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_right = 0.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="GrabbedSlot" parent="InventoryInterface" unique_id=724585802 instance=ExtResource("3_cufge")]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.47058824)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0

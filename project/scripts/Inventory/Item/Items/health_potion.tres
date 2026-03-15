@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemDataConsumable" format=3 uid="uid://dwdjqdd40h1nk"]
+
+[ext_resource type="Script" uid="uid://bvflyv51p5oga" path="res://scripts/Inventory/Item/item_data_consumable.gd" id="1_lqts2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sfnxj"]
+load_path = "res://.godot/imported/#1 - Transparent Icons.png-30ff831e7a2ac4990dfbb93e908597c7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqts2"]
+atlas = SubResource("CompressedTexture2D_sfnxj")
+region = Rect2(0, 288, 32, 32)
+
+[resource]
+script = ExtResource("1_lqts2")
+heal_value = 5
+name = "Health Potion"
+description = "A drinkable potion made of herbs, mana, and water. Able to heal minor injuries"
+texture = SubResource("AtlasTexture_lqts2")
+metadata/_custom_type_script = "uid://bvflyv51p5oga"
