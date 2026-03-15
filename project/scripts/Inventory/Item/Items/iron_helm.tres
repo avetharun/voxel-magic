@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" format=3 uid="uid://h07uiyau0naf"]
+
+[ext_resource type="Script" uid="uid://d2jwb576dg383" path="res://scripts/Inventory/Item/item_data_equip.gd" id="1_2lbvi"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sfnxj"]
+load_path = "res://.godot/imported/#1 - Transparent Icons.png-30ff831e7a2ac4990dfbb93e908597c7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lbvi"]
+atlas = SubResource("CompressedTexture2D_sfnxj")
+region = Rect2(32, 224, 32, 32)
+
+[resource]
+script = ExtResource("1_2lbvi")
+defense = 4
+mana_flow = 0.1
+max_hp_increase = 5
+name = "Iron Helm"
+description = "A sturdy Iron Helmet, crafted using a Smithing Scroll and some base resources"
+texture = SubResource("AtlasTexture_2lbvi")
+metadata/_custom_type_script = "uid://d2jwb576dg383"

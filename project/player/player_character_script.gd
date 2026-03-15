@@ -4,8 +4,13 @@ class_name PlayerCharacter
 
 signal toggle_inventory
 
+@export_group("Player Stats")
+@export var health: int = 20
+@export var mana: int = 5
+
 @export_group("Inventory Variables")
 @export var inventory_data: InventoryData
+@export var equip_inventory_data: InventoryDataEquip
 
 @export_group("Terrain Interaction Variables")
 @export var voxel_terrain: VoxelLodTerrain
@@ -98,6 +103,7 @@ var default_input_actions : Dictionary
 @onready var floor_check: RayCast3D = %FloorCheck
 
 func _ready() -> void:
+	PlayerManager.player = self
 	#set and value references
 	hit_ground_cooldown_ref = hit_ground_cooldown
 	jump_cooldown_ref = jump_cooldown
@@ -204,3 +210,8 @@ func interact() -> void:
 func get_drop_position()->Vector3:
 	var direction = -camera.global_transform.basis.z
 	return camera.global_position + direction
+
+
+func heal(heal_value: int)-> void:
+	health += heal_value
+	

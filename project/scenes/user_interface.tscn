@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://u62fhga3j438" path="res://scripts/Inventory/inventory_interface.gd" id="1_y1h3b"]
 [ext_resource type="PackedScene" uid="uid://ddrt16pme3fl3" path="res://scripts/Inventory/inventory.tscn" id="2_jbsfc"]
 [ext_resource type="PackedScene" uid="uid://cd8bpqekm44d1" path="res://scripts/Inventory/slot.tscn" id="3_cufge"]
+[ext_resource type="PackedScene" uid="uid://7wweymgtybet" path="res://scripts/Inventory/hot_bar_inventory.tscn" id="4_jbsfc"]
 
 [node name="UI" type="CanvasLayer" unique_id=693968617]
 
@@ -16,27 +17,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y1h3b")
 
-[node name="PlayerInventory" parent="InventoryInterface" unique_id=946131378 instance=ExtResource("2_jbsfc")]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 50.0
-
-[node name="ExternalInventory" parent="InventoryInterface" unique_id=1825336126 instance=ExtResource("2_jbsfc")]
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryInterface" unique_id=1987670271]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
+offset_left = -20.0
 offset_top = -20.0
-offset_right = 0.0
+offset_right = 20.0
 offset_bottom = 20.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryInterface/HBoxContainer" unique_id=15546044]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="EquipInventory" parent="InventoryInterface/HBoxContainer/VBoxContainer" unique_id=315178203 instance=ExtResource("2_jbsfc")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayerInventory" parent="InventoryInterface/HBoxContainer/VBoxContainer" unique_id=946131378 instance=ExtResource("2_jbsfc")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="ExternalInventory" parent="InventoryInterface/HBoxContainer" unique_id=1825336126 instance=ExtResource("2_jbsfc")]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="GrabbedSlot" parent="InventoryInterface" unique_id=724585802 instance=ExtResource("3_cufge")]
 unique_name_in_owner = true
@@ -46,3 +63,16 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="HotBarInventory" parent="." unique_id=1419374953 instance=ExtResource("4_jbsfc")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -88.0
+offset_right = 210.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0

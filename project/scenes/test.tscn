@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://ddrt16pme3fl3" path="res://scripts/Inventory/inventory.tscn" id="1_iyx0m"]
 [ext_resource type="Script" uid="uid://wx7yinbgwx6u" path="res://scripts/main.gd" id="1_j5jx5"]
-[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/player_character_scene.tscn" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://player/player_character_scene.tscn" id="2_bl13t"]
 [ext_resource type="Script" uid="uid://u62fhga3j438" path="res://scripts/Inventory/inventory_interface.gd" id="2_lpvoh"]
-[ext_resource type="Resource" uid="uid://0t48ya0ejwwg" path="res://scripts/Inventory/player_inventory.tres" id="4_74lek"]
+[ext_resource type="Resource" uid="uid://0t48ya0ejwwg" path="res://player/player_inventory.tres" id="4_74lek"]
 [ext_resource type="PackedScene" uid="uid://cd8bpqekm44d1" path="res://scripts/Inventory/slot.tscn" id="4_at5dv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_errlg"]

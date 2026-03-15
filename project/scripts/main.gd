@@ -1,6 +1,7 @@
 extends Node3D
 @onready var player = $PlayerCharacter
 @onready var inventory_interface = $UI/InventoryInterface
+@onready var hot_bar_inventory = $UI/HotBarInventory
 
 const Pickup = preload("uid://tnyppg70ee8u")
 
@@ -8,6 +9,8 @@ const Pickup = preload("uid://tnyppg70ee8u")
 func _ready()-> void:
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
+	inventory_interface.set_equip_inventory_data(player.equip_inventory_data)
+	hot_bar_inventory.set_inventory_data(player.inventory_data)
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_interface)
@@ -18,8 +21,11 @@ func toggle_inventory_interface(external_inventory_owner = null) -> void:
 	
 	if inventory_interface.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		hot_bar_inventory.hide()
 	else:
+		
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		hot_bar_inventory.show()
 	
 	if external_inventory_owner and inventory_interface.is_visible():
 		inventory_interface.set_external_inventory(external_inventory_owner)
