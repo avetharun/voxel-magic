@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dwpuigxviuagg"]
 
+[ext_resource type="Script" uid="uid://wx7yinbgwx6u" path="res://scenes/main.gd" id="1_0ig4v"]
 [ext_resource type="Script" uid="uid://u62fhga3j438" path="res://scenes/inventory_interface.gd" id="1_ou8gc"]
 [ext_resource type="PackedScene" uid="uid://ddrt16pme3fl3" path="res://scripts/Inventory/inventory.tscn" id="2_0ig4v"]
 [ext_resource type="PackedScene" uid="uid://cd8bpqekm44d1" path="res://scripts/Inventory/slot.tscn" id="3_vabsh"]
@@ -46,23 +47,16 @@ period = 148.8001
 
 [sub_resource type="VoxelGeneratorGraph" id="VoxelGeneratorGraph_0ig4v"]
 graph_data = {
-"connections": [[2, 0, 41, 1], [68, 0, 54, 0], [39, 0, 40, 0], [40, 0, 41, 0], [41, 0, 42, 0], [41, 0, 42, 1], [42, 0, 43, 0], [43, 0, 44, 0], [44, 0, 49, 0], [45, 0, 46, 0], [45, 0, 46, 1], [45, 0, 48, 0], [48, 0, 44, 1], [49, 0, 87, 0], [49, 0, 86, 0], [50, 0, 51, 0], [51, 0, 52, 0], [52, 0, 49, 1], [53, 0, 68, 0], [54, 0, 70, 1], [55, 0, 76, 0], [70, 0, 55, 1], [71, 0, 73, 1], [72, 0, 80, 1], [73, 0, 72, 0], [76, 0, 4, 0], [77, 0, 79, 0], [79, 0, 80, 0], [80, 0, 82, 0], [82, 0, 70, 0], [86, 0, 76, 1], [88, 0, 99, 0], [89, 0, 90, 0], [90, 0, 91, 0], [91, 0, 92, 0], [91, 0, 92, 1], [92, 0, 93, 0], [99, 0, 90, 1]],
+"connections": [[41, 0, 42, 0], [41, 0, 42, 1], [2, 0, 41, 1], [39, 0, 40, 0], [68, 0, 54, 0], [40, 0, 41, 0], [42, 0, 43, 0], [43, 0, 44, 0], [44, 0, 49, 0], [45, 0, 46, 0], [45, 0, 46, 1], [46, 0, 48, 0], [48, 0, 44, 1], [49, 0, 86, 0], [50, 0, 51, 0], [51, 0, 52, 0], [52, 0, 49, 1], [53, 0, 68, 0], [54, 0, 70, 1], [55, 0, 76, 0], [70, 0, 55, 1], [71, 0, 73, 0], [72, 0, 80, 1], [73, 0, 72, 0], [76, 0, 4, 0], [77, 0, 79, 0], [79, 0, 80, 0], [80, 0, 82, 0], [82, 0, 70, 0], [86, 0, 76, 1], [88, 0, 99, 0], [89, 0, 90, 0], [90, 0, 91, 0], [91, 0, 92, 0], [91, 0, 92, 1], [92, 0, 93, 0], [99, 0, 90, 1]],
 "nodes": {
 "1": {
 "auto_connect": false,
 "gui_position": Vector2(640, 420),
 "type": "InputX"
 },
-"101": {
-"a": 0.0,
-"auto_connect": false,
-"b": 0.0,
-"gui_position": Vector2(2720, -380),
-"type": "Subtract"
-},
 "2": {
 "auto_connect": false,
-"gui_position": Vector2(960, -60),
+"gui_position": Vector2(1360, 80),
 "type": "InputY"
 },
 "3": {
@@ -72,7 +66,7 @@ graph_data = {
 },
 "39": {
 "auto_connect": true,
-"gui_position": Vector2(900, -160),
+"gui_position": Vector2(1300, -20),
 "noise": SubResource("ZN_FastNoiseLite_ou8gc"),
 "type": "FastNoise2D",
 "x": 0.0,
@@ -80,39 +74,39 @@ graph_data = {
 },
 "4": {
 "auto_connect": true,
-"gui_position": Vector2(3920, 60),
+"gui_position": Vector2(3560, -80),
 "type": "OutputSDF"
 },
 "40": {
 "auto_connect": false,
 "b": 20.0,
-"gui_position": Vector2(1060, -160),
+"gui_position": Vector2(1460, -20),
 "type": "Multiply"
 },
 "41": {
 "auto_connect": false,
-"gui_position": Vector2(1200, -160),
+"gui_position": Vector2(1600, -20),
 "type": "Add"
 },
 "42": {
 "auto_connect": false,
-"gui_position": Vector2(1340, -160),
+"gui_position": Vector2(1740, -20),
 "type": "Multiply"
 },
 "43": {
 "auto_connect": false,
 "b": 0.05,
-"gui_position": Vector2(1480, -160),
+"gui_position": Vector2(1880, -20),
 "type": "Multiply"
 },
 "44": {
 "auto_connect": false,
-"gui_position": Vector2(1940, 200),
+"gui_position": Vector2(2100, 80),
 "type": "Add"
 },
 "45": {
 "auto_connect": true,
-"gui_position": Vector2(1180, 360),
+"gui_position": Vector2(1520, 140),
 "noise": SubResource("ZN_FastNoiseLite_0ig4v"),
 "type": "FastNoise2D",
 "x": 0.0,
@@ -120,23 +114,23 @@ graph_data = {
 },
 "46": {
 "auto_connect": false,
-"gui_position": Vector2(1440, 280),
+"gui_position": Vector2(1720, 140),
 "type": "Multiply"
 },
 "48": {
 "auto_connect": false,
 "b": 0.5,
-"gui_position": Vector2(1620, 360),
+"gui_position": Vector2(1860, 140),
 "type": "Subtract"
 },
 "49": {
 "auto_connect": false,
-"gui_position": Vector2(2100, 240),
+"gui_position": Vector2(2260, 80),
 "type": "Add"
 },
 "50": {
 "auto_connect": true,
-"gui_position": Vector2(1340, 520),
+"gui_position": Vector2(1520, 260),
 "noise": SubResource("ZN_FastNoiseLite_vabsh"),
 "type": "FastNoise2D",
 "x": 0.0,
@@ -145,18 +139,18 @@ graph_data = {
 "51": {
 "auto_connect": false,
 "b": 2.0,
-"gui_position": Vector2(1520, 520),
+"gui_position": Vector2(1700, 260),
 "type": "Multiply"
 },
 "52": {
 "auto_connect": false,
 "b": 0.025,
-"gui_position": Vector2(1660, 520),
+"gui_position": Vector2(1840, 260),
 "type": "Max"
 },
 "53": {
 "auto_connect": true,
-"gui_position": Vector2(1760, -140),
+"gui_position": Vector2(2440, -80),
 "noise": SubResource("ZN_FastNoiseLite_fio6k"),
 "type": "FastNoise2D",
 "x": 0.0,
@@ -165,7 +159,7 @@ graph_data = {
 "54": {
 "auto_connect": false,
 "b": 3.0,
-"gui_position": Vector2(2000, -180),
+"gui_position": Vector2(2780, -80),
 "type": "Multiply"
 },
 "55": {
@@ -176,7 +170,7 @@ graph_data = {
 },
 "58": {
 "auto_connect": false,
-"gui_position": Vector2(900, -260),
+"gui_position": Vector2(1300, -120),
 "gui_size": Vector2(684.3233, 48.69702),
 "name": &"Plate caves",
 "text": "",
@@ -185,17 +179,17 @@ graph_data = {
 "68": {
 "auto_connect": false,
 "b": 17.0,
-"gui_position": Vector2(1920, -60),
+"gui_position": Vector2(2640, -80),
 "type": "Add"
 },
 "70": {
 "auto_connect": false,
-"gui_position": Vector2(2260, -140),
+"gui_position": Vector2(2940, -120),
 "type": "Add"
 },
 "71": {
 "auto_connect": true,
-"gui_position": Vector2(1180, -500),
+"gui_position": Vector2(2040, -220),
 "noise": SubResource("ZN_FastNoiseLite_8em8x"),
 "type": "FastNoise2D",
 "x": 0.0,
@@ -204,24 +198,24 @@ graph_data = {
 "72": {
 "auto_connect": false,
 "b": 65.0,
-"gui_position": Vector2(1480, -520),
+"gui_position": Vector2(2420, -220),
 "type": "Multiply"
 },
 "73": {
-"a": 1.0,
 "auto_connect": false,
-"gui_position": Vector2(1340, -520),
+"b": 1.0,
+"gui_position": Vector2(2240, -220),
 "type": "Add"
 },
 "76": {
 "auto_connect": false,
-"gui_position": Vector2(3520, 80),
+"gui_position": Vector2(3360, -80),
 "smoothness": 0.0,
 "type": "SdfSmoothSubtract"
 },
 "77": {
 "auto_connect": true,
-"gui_position": Vector2(1160, -620),
+"gui_position": Vector2(2200, -320),
 "noise": SubResource("ZN_FastNoiseLite_kf3o1"),
 "type": "FastNoise2D",
 "x": 0.0,
@@ -231,38 +225,24 @@ graph_data = {
 "auto_connect": false,
 "edge0": 0.0,
 "edge1": 1.0,
-"gui_position": Vector2(1340, -600),
+"gui_position": Vector2(2420, -320),
 "type": "Smoothstep"
 },
 "80": {
 "auto_connect": false,
-"gui_position": Vector2(1620, -600),
+"gui_position": Vector2(2620, -280),
 "type": "Multiply"
 },
 "82": {
 "auto_connect": false,
-"gui_position": Vector2(1740, -600),
+"gui_position": Vector2(2760, -280),
 "type": "Abs"
-},
-"83": {
-"auto_connect": false,
-"gui_position": Vector2(1160, -700),
-"gui_size": Vector2(674.3163, 46.034973),
-"name": &"Mountains",
-"text": "",
-"type": "Comment"
 },
 "86": {
 "auto_connect": false,
 "b": 0.33,
-"gui_position": Vector2(2280, 160),
+"gui_position": Vector2(2420, 80),
 "type": "Add"
-},
-"87": {
-"auto_connect": false,
-"b": 100.0,
-"gui_position": Vector2(2480, 340),
-"type": "Multiply"
 },
 "88": {
 "auto_connect": false,
@@ -307,13 +287,6 @@ graph_data = {
 "text": "",
 "type": "Comment"
 },
-"96": {
-"a": 0.0,
-"auto_connect": false,
-"b": 0.0,
-"gui_position": Vector2(2880, -220),
-"type": "Subtract"
-},
 "97": {
 "auto_connect": true,
 "gui_position": Vector2(2565.2012, -677.6003),
@@ -338,6 +311,7 @@ albedo_texture = ExtResource("4_fio6k")
 uv1_triplanar = true
 
 [node name="Cavetest" type="Node3D" unique_id=256993951]
+script = ExtResource("1_0ig4v")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1928333629]
 
@@ -381,12 +355,12 @@ mesher = SubResource("VoxelMesherTransvoxel_dm78r")
 material = SubResource("StandardMaterial3D_q8t4i")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1982527116]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100.943756, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -45.911304, 0)
 use_collision = true
 size = Vector3(14, 1, 16)
 
 [node name="PlayerCharacter" parent="." unique_id=307017552 instance=ExtResource("5_tamty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -99.277306, -1.9730899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -44.244854, -1.9730899)
 inventory_data = ExtResource("6_8em8x")
 
 [node name="VoxelViewer" type="VoxelViewer" parent="PlayerCharacter" unique_id=698351579]
