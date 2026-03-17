@@ -15,6 +15,17 @@ func can_fully_merge_with(other_slot_data: SlotData) -> bool:
 func fully_merge_with(other_slot_data: SlotData) -> void:
 	quantity += other_slot_data.quantity
 
+
+func can_overflow(other_slot_data: SlotData)->bool:
+	return item_data == other_slot_data.item_data and item_data.stackable and quantity + other_slot_data.quantity > MAX_STACK_SIZE
+
+func overflow_with(other_slot_data: SlotData)-> SlotData:
+	var overflow = quantity + other_slot_data.quantity
+	quantity = MAX_STACK_SIZE
+	other_slot_data.quantity = overflow - MAX_STACK_SIZE
+	return other_slot_data
+
+
 #take one from the currently held stack, create a new SlotData at the selected inventory slot index
 func create_single_slot_data() -> SlotData:
 	var new_slot_data = duplicate()

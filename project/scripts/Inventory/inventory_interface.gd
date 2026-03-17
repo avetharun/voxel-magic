@@ -51,8 +51,8 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button:int
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		[null, MOUSE_BUTTON_RIGHT]:
-			#grabbed_slot_data = inventory_data.grab_half_slot_data(index)
-			inventory_data.use_slot_data(index)
+			grabbed_slot_data = inventory_data.grab_half_slot_data(index)
+			#inventory_data.use_slot_data(index)
 			pass 
 			
 		[_, MOUSE_BUTTON_RIGHT]:

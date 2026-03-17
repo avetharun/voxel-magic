@@ -357,7 +357,7 @@ script = ExtResource("10_krij7")
 item_data = ExtResource("11_ygy3j")
 metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
 
-[node name="Cavetest" type="Node3D" unique_id=256993951]
+[node name="Cavetest" type="Node3D" unique_id=256993951 groups=["main"]]
 script = ExtResource("1_0ig4v")
 
 [node name="UI" parent="." unique_id=693968617 instance=ExtResource("2_tamty")]

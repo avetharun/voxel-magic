@@ -36,6 +36,8 @@ func drop_slot_data(grabbed_slot_data: SlotData, index:int) -> SlotData:
 	
 	if slot_data and slot_data.can_fully_merge_with(grabbed_slot_data):
 		slot_data.fully_merge_with(grabbed_slot_data)
+	elif slot_data and slot_data.can_overflow(grabbed_slot_data) and slot_data.quantity < slot_data.MAX_STACK_SIZE:
+		return_slot_data = slot_data.overflow_with(grabbed_slot_data)
 	else:
 		slot_datas[index] = grabbed_slot_data
 		return_slot_data = slot_data

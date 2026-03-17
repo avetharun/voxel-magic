@@ -22,6 +22,7 @@ PlayerManager="*uid://bolec3xtxwup1"
 [global_group]
 
 external_inventory=""
+main=""
 
 [input]
 
