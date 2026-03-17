@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dbegsr80sdgil"
+path="res://.godot/imported/heightmap_test.png-ca258cde920c8e370107b5c4faa3a4b1.image"
+
+[deps]
+
+source_file="res://heightmaps/heightmap_test.png"
+dest_files=["res://.godot/imported/heightmap_test.png-ca258cde920c8e370107b5c4faa3a4b1.image"]
+
+[params]
+

@@ -9,3 +9,4 @@ class_name ItemData
 func use(target) -> void:
 	#this function exists so that no matter what child-scripts exist they have the ability to call the USE function
 	pass
+ 
