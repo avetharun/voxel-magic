@@ -8,8 +8,11 @@ const Pickup = preload("uid://tnyppg70ee8u")
 
 func _ready()-> void:
 	player.toggle_inventory.connect(toggle_inventory_interface)
+	#setup ui for player inventory
 	inventory_interface.set_player_inventory_data(player.inventory_data)
+	#setup ui for equipment slots
 	inventory_interface.set_equip_inventory_data(player.equip_inventory_data)
+	#setup ui for hotbar slots
 	hot_bar_inventory.set_inventory_data(player.inventory_data)
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
@@ -23,7 +26,6 @@ func toggle_inventory_interface(external_inventory_owner = null) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		hot_bar_inventory.hide()
 	else:
-		
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		hot_bar_inventory.show()
 	

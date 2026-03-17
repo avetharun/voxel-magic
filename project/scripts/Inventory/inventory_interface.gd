@@ -2,7 +2,7 @@ extends Control
 
 signal drop_slot_data(slot_data: SlotData)
 
-var grabbed_slot_data: SlotData
+static var grabbed_slot_data: SlotData
 var external_inventory_owner
 
 @onready var grabbed_slot = %GrabbedSlot
@@ -43,11 +43,13 @@ func clear_external_inventory() -> void:
 		external_inventory_owner = null
 
 
-
 func on_inventory_interact(inventory_data: InventoryData, index: int, button:int)-> void:
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
-			grabbed_slot_data = inventory_data.grab_slot_data(index)
+			if Input.is_action_pressed("quickstack"):
+				inventory_data.on_slot_shift_clicked(external_inventory_owner.inventory_data if external_inventory_owner else null, inventory_data.slot_datas[index],index)
+			else:
+				grabbed_slot_data = inventory_data.grab_slot_data(index)
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		[null, MOUSE_BUTTON_RIGHT]:

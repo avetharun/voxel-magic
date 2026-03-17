@@ -99,7 +99,38 @@ func pick_up_slot_data(slot_data: SlotData)-> bool:
 			inventory_updated.emit(self)
 			return true
 	return false
-	
+
+func on_slot_shift_clicked(other_inventory:InventoryData, slot_data:SlotData, source_index:int):
+	if other_inventory:
+		for index in other_inventory.slot_datas.size():
+			if not other_inventory.slot_datas[index] or other_inventory.slot_datas[index].can_fully_merge_with(slot_data):
+				other_inventory.slot_datas[index].fully_merge_with(slot_data)
+				slot_datas[source_index] = null
+				inventory_updated.emit(self)
+				other_inventory.inventory_updated.emit(other_inventory)
+				return true
+	else:
+		var start_index = 24-6
+		var end_index = 24
+		if source_index >= start_index: start_index = 0
+		for index in range(start_index, end_index):
+			var can_overflow = slot_datas[index].can_overflow(slot_data) if slot_datas[index] else false
+			if not slot_datas[index] or slot_datas[index].can_fully_merge_with(slot_data) or can_overflow:
+				if slot_datas[index]:
+					if can_overflow:
+						print("slot can overflow, value is greater than max_value, next slot is never checked")
+						slot_data = slot_datas[index].overflow_with(slot_data)
+						slot_datas[source_index] = null
+						continue
+					else:
+						slot_datas[index].fully_merge_with(slot_data)
+						slot_datas[source_index] = null
+				else:
+					slot_datas[index] = slot_data
+					slot_datas[source_index] = null
+				inventory_updated.emit(self)
+				return true
+
 
 func on_slot_clicked(index: int, button:int)->void:
 	inventory_interact.emit(self, index, button)
