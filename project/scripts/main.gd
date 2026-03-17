@@ -68,8 +68,9 @@ func perform_merge(a, b):
 		survivor = b
 		consumed = a
 
-	survivor.slot_data.fully_merge_with(consumed.slot_data)
-	consumed.queue_free()
-
+	if survivor.slot_data.can_fully_merge_with(consumed.slot_data):
+		survivor.slot_data.fully_merge_with(consumed.slot_data)
+		consumed.queue_free()
+	
 	# Unlock the survivor so it can merge again later
 	survivor.merge_locked = false
