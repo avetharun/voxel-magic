@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bgftxavpoig3l"]
+
+[ext_resource type="Image" uid="uid://bh7swguxfk4t4" path="res://heightmaps/28_106_87_094_13_2048_2048_16bit.png" id="1_xm5mp"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_6r670"]
+
+[sub_resource type="VoxelGeneratorImage" id="VoxelGeneratorImage_ygy3j"]
+height_start = 0.0
+height_range = 517.0
+offset = Vector2i(512, 0)
+image = ExtResource("1_xm5mp")
+blur_enabled = true
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_dm78r"]
+mesh_optimization_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krij7"]
+albedo_texture = ExtResource("2_6r670")
+uv1_triplanar = true
+
+[node name="VoxelLodTerrain" type="VoxelLodTerrain" unique_id=1472016671]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+generator = SubResource("VoxelGeneratorImage_ygy3j")
+mesher = SubResource("VoxelMesherTransvoxel_dm78r")
+material = SubResource("StandardMaterial3D_krij7")

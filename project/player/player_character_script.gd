@@ -197,10 +197,12 @@ func tween_model_height(state_model_height : float) -> void:
 
 
 func _unhandled_input(event: InputEvent):
+	if GsomConsole.is_visible: return
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
 	if Input.is_action_just_pressed("use"):
 		interact()
+
 
 
 func interact() -> void:

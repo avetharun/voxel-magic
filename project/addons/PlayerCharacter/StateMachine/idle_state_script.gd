@@ -25,6 +25,7 @@ func physics_update(delta : float):
 	applies(delta)
 	
 	play_char.gravity_apply(delta)
+	if GsomConsole.is_visible: return
 	
 	input_management()
 	
@@ -50,14 +51,14 @@ func applies(delta : float):
 	
 func input_management():
 	#manage the state transitions depending on the actions inputs
-	if Input.is_action_just_pressed(play_char.jump_action):
+	if Input.is_action_pressed(play_char.jump_action):
 		if play_char.jump_cooldown < 0.0:
 			transitioned.emit(self, "JumpState")
 		
-	if Input.is_action_just_pressed(play_char.crouch_action):
+	if Input.is_action_pressed(play_char.crouch_action):
 		transitioned.emit(self, "CrouchState")
 		
-	if Input.is_action_just_pressed(play_char.run_action):
+	if Input.is_action_pressed(play_char.run_action):
 		if play_char.walk_or_run == "WalkState": play_char.walk_or_run = "RunState"
 		elif play_char.walk_or_run == "RunState": play_char.walk_or_run = "WalkState"
 		

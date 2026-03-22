@@ -25,6 +25,7 @@ func physics_update(delta : float) -> void:
 	applies(delta)
 	
 	play_char.gravity_apply(delta)
+	if GsomConsole.is_visible: return
 	
 	input_management()
 	

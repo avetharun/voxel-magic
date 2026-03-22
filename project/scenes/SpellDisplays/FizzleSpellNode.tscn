@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://gbhes2avc1m5"]
+
+[ext_resource type="Script" uid="uid://d28lcqn6qn3vq" path="res://scripts/Magic/SpellNode.gd" id="1_61q4m"]
+[ext_resource type="Script" uid="uid://c2ja1eugyxfeq" path="res://addons/UniParticles3D/UniParticles3D.gd" id="2_d6ww6"]
+
+[sub_resource type="Curve" id="Curve_d6ww6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="FizzleSpellNode" type="RigidBody3D" unique_id=1332942577]
+script = ExtResource("1_61q4m")
+metadata/_custom_type_script = "uid://d28lcqn6qn3vq"
+
+[node name="GPUParticles3D" type="Node3D" parent="." unique_id=2075053509]
+script = ExtResource("2_d6ww6")
+duration = 0.34
+start_lifetime_constant = 0.2
+enable_play_behavior = Vector2i(1, 1)
+loop = false
+destroy_on_finish = true
+enable_emission = Vector2i(1, 1)
+bursts = [0.0, 0, 10, 10, 0, 1, 1, 0.0, 1.0]
+enable_shape = Vector2i(1, 1)
+shape_type = 1
+radius = 0.1
+emit_from = 1
+enable_size_over_lifetime = Vector2i(1, 0)
+size_over_lifetime = SubResource("Curve_d6ww6")
+enable_rendering = Vector2i(1, 0)
+metadata/_custom_type_script = "uid://c2ja1eugyxfeq"
+
+[connection signal="finished_burst" from="GPUParticles3D" to="." method="queue_free"]

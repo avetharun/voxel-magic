@@ -28,6 +28,7 @@ func physics_update(delta : float) -> void:
 	applies(delta)
 	
 	play_char.gravity_apply(delta)
+	if GsomConsole.is_visible: return
 	
 	input_management()
 	
@@ -47,13 +48,13 @@ func applies(delta : float) -> void:
 			transitioned.emit(self, "JumpState")
 	
 func input_management() -> void:
-	if Input.is_action_just_pressed(play_char.jump_action):
+	if Input.is_action_pressed(play_char.jump_action):
 		if play_char.jump_cooldown < 0.0 and !raycast_verification(): #if nothing block the player character when it will leaves the play_charouch state
 			transitioned.emit(self, "JumpState")
 			
 	if play_char.continious_crouch: 
 		#has to press run button once to run
-		if Input.is_action_just_pressed(play_char.crouch_action):
+		if Input.is_action_pressed(play_char.crouch_action):
 			if !raycast_verification():
 				play_char.walk_or_run = "WalkState"
 				transitioned.emit(self, "WalkState")

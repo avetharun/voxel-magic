@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ymueplu6ftnu"]
+
+[ext_resource type="Script" uid="uid://dddw0gla5ee44" path="res://scenes/UI/console.gd" id="1_gaktp"]
+
+[node name="GsomConsolePanel" type="Control" unique_id=1449766099]
+top_level = true
+custom_minimum_size = Vector2(480, 320)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 320.0
+script = ExtResource("1_gaktp")
+metadata/_custom_type_script = "uid://dtj85h6uxam0w"

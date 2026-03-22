@@ -22,6 +22,7 @@ func physics_update(delta : float) -> void:
 	applies(delta)
 	
 	play_char.gravity_apply(delta)
+	if GsomConsole.is_visible: return
 	
 	input_management()
 	
@@ -42,7 +43,7 @@ func applies(delta : float) -> void:
 			else: transitioned.emit(self, "IdleState")
 		
 func input_management() -> void:
-	if Input.is_action_just_pressed(play_char.jump_action):
+	if Input.is_action_pressed(play_char.jump_action):
 		#check if can jump buffer
 		if play_char.floor_check.is_colliding() and play_char.last_frame_position.y > play_char.position.y and play_char.nb_jumps_in_air_allowed <= 0: play_char.jump_buff_on = true
 		#check if can coyote jump

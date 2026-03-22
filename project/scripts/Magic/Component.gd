@@ -9,3 +9,6 @@ enum ComponentType {
 @export var component_type : ComponentType = ComponentType.NO_OP
 
 @export var texture: AtlasTexture
+
+func execute(spell_node:SpellNode)->void:
+	pass

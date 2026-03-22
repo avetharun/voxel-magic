@@ -140,6 +140,7 @@ func input_actions_check() -> void:
 		
 		
 func _unhandled_input(event) -> void:
+	if GsomConsole.is_visible: return
 	#manage camera rotation (360 on x axis, blocked at specified values on y axis, to not having the character do a complete head turn, which will be kinda weird)
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * (x_axis_sensibility / 10))
@@ -148,6 +149,7 @@ func _unhandled_input(event) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(max_up_angle_view), deg_to_rad(max_down_angle_view))
 		
 func _process(delta : float) -> void:
+	if GsomConsole.is_visible: return
 	#tilt(delta)
 	
 	#bob(delta)
