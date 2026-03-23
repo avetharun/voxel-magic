@@ -2,10 +2,6 @@
 
 [ext_resource type="Script" uid="uid://wx7yinbgwx6u" path="res://scripts/main.gd" id="1_0ig4v"]
 [ext_resource type="PackedScene" uid="uid://gdo5v7qc54gy" path="res://scenes/user_interface.tscn" id="2_tamty"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://bgftxavpoig3l" path="res://scenes/test_caves_geo.tscn" id="3_kf3o1"]
-=======
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://player/player_character_scene.tscn" id="5_tamty"]
 [ext_resource type="Resource" uid="uid://0t48ya0ejwwg" path="res://player/player_inventory.tres" id="6_8em8x"]
 [ext_resource type="Script" uid="uid://3h3q174pv1vt" path="res://scripts/Inventory/inventory_data_equip.gd" id="6_kf3o1"]
@@ -29,8 +25,6 @@ sky = SubResource("Sky_bl13t")
 tonemap_mode = 2
 glow_enabled = true
 
-<<<<<<< Updated upstream
-=======
 [sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_kf3o1"]
 seed = 1234
 period = 600.0001
@@ -199,7 +193,6 @@ graph_data = {
 
 [sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_dm78r"]
 
->>>>>>> Stashed changes
 [sub_resource type="Resource" id="Resource_krij7"]
 script = ExtResource("6_kf3o1")
 slot_datas = Array[ExtResource("10_krij7")]([null, null, null, null])
@@ -238,15 +231,10 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=759217101]
 environment = SubResource("Environment_krij7")
 
-<<<<<<< Updated upstream
-[node name="VoxelLodTerrain" parent="." unique_id=1472016671 instance=ExtResource("3_kf3o1")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -100, 0)
-=======
 [node name="VoxelLodTerrain" type="VoxelLodTerrain" parent="." unique_id=1679347255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 generator = SubResource("VoxelGeneratorGraph_dm78r")
 mesher = SubResource("VoxelMesherTransvoxel_dm78r")
->>>>>>> Stashed changes
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1982527116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535.11957, 140.62585, 100.640884)
