@@ -1,0 +1,154 @@
+[gd_resource type="VoxelGeneratorGraph" format=3 uid="uid://c0ondool0q7bq"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_krij7"]
+seed = 5678
+period = 1200.0001
+fractal_octaves = 5
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_ygy3j"]
+seed = 9101
+period = 80.0001
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_kf3o1"]
+seed = 1234
+period = 600.0001
+fractal_octaves = 6
+
+[resource]
+graph_data = {
+"connections": [[20, 0, 26, 1], [12, 0, 30, 0], [12, 0, 32, 0], [12, 0, 33, 0], [12, 0, 34, 0], [19, 0, 25, 1], [21, 0, 27, 1], [22, 0, 28, 1], [25, 0, 26, 0], [26, 0, 27, 0], [27, 0, 28, 0], [28, 0, 9, 1], [30, 0, 19, 0], [32, 0, 20, 0], [33, 0, 21, 0], [34, 0, 22, 0], [6, 0, 7, 0], [7, 0, 8, 0], [8, 0, 25, 0], [9, 0, 4, 0]],
+"nodes": {
+"12": {
+"auto_connect": true,
+"gui_position": Vector2(140, 220),
+"name": &"BiomeMaskNoise",
+"noise": SubResource("ZN_FastNoiseLite_krij7"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"16": {
+"auto_connect": true,
+"gui_position": Vector2(-40, 640),
+"name": &"SwampMaskNoise",
+"noise": SubResource("ZN_FastNoiseLite_ygy3j"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"19": {
+"auto_connect": false,
+"b": -150.0,
+"gui_position": Vector2(760, 180),
+"name": &"OceanHeight",
+"type": "Multiply"
+},
+"20": {
+"auto_connect": false,
+"b": 0.0,
+"gui_position": Vector2(760, 280),
+"name": &"PlainsHeight",
+"type": "Multiply"
+},
+"21": {
+"auto_connect": false,
+"b": 100.0,
+"gui_position": Vector2(760, 380),
+"name": &"HillsHeight",
+"type": "Multiply"
+},
+"22": {
+"auto_connect": false,
+"b": 300.0,
+"gui_position": Vector2(760, 480),
+"name": &"MountainHeight",
+"type": "Multiply"
+},
+"25": {
+"auto_connect": false,
+"gui_position": Vector2(980, 180),
+"type": "Add"
+},
+"26": {
+"auto_connect": false,
+"gui_position": Vector2(980, 280),
+"type": "Add"
+},
+"27": {
+"auto_connect": false,
+"gui_position": Vector2(1000, 380),
+"type": "Add"
+},
+"28": {
+"auto_connect": false,
+"gui_position": Vector2(1000, 480),
+"type": "Add"
+},
+"30": {
+"auto_connect": false,
+"edge0": 0.05,
+"edge1": 0.3,
+"gui_position": Vector2(500, 180),
+"name": &"OceanMask",
+"type": "Smoothstep"
+},
+"32": {
+"auto_connect": false,
+"edge0": 0.15,
+"edge1": 0.35,
+"gui_position": Vector2(500, 260),
+"name": &"PlainsMask",
+"type": "Smoothstep"
+},
+"33": {
+"auto_connect": false,
+"edge0": 0.35,
+"edge1": 0.65,
+"gui_position": Vector2(500, 340),
+"name": &"HillMask",
+"type": "Smoothstep"
+},
+"34": {
+"auto_connect": false,
+"edge0": 0.65,
+"edge1": 0.95,
+"gui_position": Vector2(500, 420),
+"name": &"MountainMask",
+"type": "Smoothstep"
+},
+"4": {
+"auto_connect": true,
+"gui_position": Vector2(1780, 520),
+"type": "OutputSDF"
+},
+"6": {
+"auto_connect": true,
+"gui_position": Vector2(500, -60),
+"noise": SubResource("ZN_FastNoiseLite_kf3o1"),
+"type": "FastNoise2D",
+"x": 0.0,
+"y": 0.0
+},
+"7": {
+"auto_connect": false,
+"b": 80.0,
+"gui_position": Vector2(700, -60),
+"name": &"Height Constant",
+"type": "Multiply"
+},
+"8": {
+"auto_connect": false,
+"b": 10.0,
+"gui_position": Vector2(940, -60),
+"name": &"Bias for Ocean Height",
+"type": "Add"
+},
+"9": {
+"auto_connect": true,
+"gui_position": Vector2(1380, 520),
+"type": "SdfPlane",
+"y": 0.0
+}
+},
+"version": 2
+}

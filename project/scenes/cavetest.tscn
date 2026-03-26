@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://wx7yinbgwx6u" path="res://scripts/main.gd" id="1_0ig4v"]
 [ext_resource type="PackedScene" uid="uid://gdo5v7qc54gy" path="res://scenes/user_interface.tscn" id="2_tamty"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_kf3o1"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://player/player_character_scene.tscn" id="5_tamty"]
 [ext_resource type="Resource" uid="uid://0t48ya0ejwwg" path="res://player/player_inventory.tres" id="6_8em8x"]
 [ext_resource type="Script" uid="uid://3h3q174pv1vt" path="res://scripts/Inventory/inventory_data_equip.gd" id="6_kf3o1"]
@@ -25,178 +26,45 @@ sky = SubResource("Sky_bl13t")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_kf3o1"]
-seed = 1234
-period = 600.0001
-fractal_octaves = 6
-
-[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_krij7"]
-seed = 5678
-period = 1200.0001
-fractal_octaves = 5
-
-[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_ygy3j"]
-seed = 9101
-period = 80.0001
-
-[sub_resource type="VoxelGeneratorGraph" id="VoxelGeneratorGraph_dm78r"]
+[sub_resource type="VoxelGeneratorGraph" id="VoxelGeneratorGraph_kf3o1"]
 graph_data = {
-"connections": [[9, 0, 53, 0], [6, 0, 7, 0], [7, 0, 8, 0], [8, 0, 25, 0], [12, 0, 30, 0], [12, 0, 32, 0], [12, 0, 33, 0], [12, 0, 34, 0], [19, 0, 25, 1], [20, 0, 26, 1], [21, 0, 27, 1], [22, 0, 28, 1], [25, 0, 26, 0], [26, 0, 27, 0], [27, 0, 28, 0], [28, 0, 9, 1], [30, 0, 19, 0], [32, 0, 20, 0], [33, 0, 21, 0], [34, 0, 22, 0], [53, 0, 4, 0], [54, 0, 53, 1]],
+"connections": [[2, 0, 5, 0], [5, 0, 4, 0]],
 "nodes": {
-"12": {
-"auto_connect": true,
-"gui_position": Vector2(140, 220),
-"name": &"BiomeMaskNoise",
-"noise": SubResource("ZN_FastNoiseLite_krij7"),
-"type": "FastNoise2D",
-"x": 0.0,
-"y": 0.0
-},
-"16": {
-"auto_connect": true,
-"gui_position": Vector2(-40, 640),
-"name": &"SwampMaskNoise",
-"noise": SubResource("ZN_FastNoiseLite_ygy3j"),
-"type": "FastNoise2D",
-"x": 0.0,
-"y": 0.0
-},
-"19": {
+"1": {
 "auto_connect": false,
-"b": -150.0,
-"gui_position": Vector2(760, 180),
-"name": &"OceanHeight",
-"type": "Multiply"
+"gui_position": Vector2(440, 50),
+"type": "InputX"
 },
-"20": {
+"2": {
 "auto_connect": false,
-"b": 0.0,
-"gui_position": Vector2(760, 280),
-"name": &"PlainsHeight",
-"type": "Multiply"
+"gui_position": Vector2(440, 150),
+"type": "InputY"
 },
-"21": {
+"3": {
 "auto_connect": false,
-"b": 100.0,
-"gui_position": Vector2(760, 380),
-"name": &"HillsHeight",
-"type": "Multiply"
-},
-"22": {
-"auto_connect": false,
-"b": 300.0,
-"gui_position": Vector2(760, 480),
-"name": &"MountainHeight",
-"type": "Multiply"
-},
-"25": {
-"auto_connect": false,
-"gui_position": Vector2(980, 180),
-"type": "Add"
-},
-"26": {
-"auto_connect": false,
-"gui_position": Vector2(980, 280),
-"type": "Add"
-},
-"27": {
-"auto_connect": false,
-"gui_position": Vector2(1000, 380),
-"type": "Add"
-},
-"28": {
-"auto_connect": false,
-"gui_position": Vector2(1000, 480),
-"type": "Add"
-},
-"30": {
-"auto_connect": false,
-"edge0": 0.05,
-"edge1": 0.3,
-"gui_position": Vector2(500, 180),
-"name": &"OceanMask",
-"type": "Smoothstep"
-},
-"32": {
-"auto_connect": false,
-"edge0": 0.15,
-"edge1": 0.35,
-"gui_position": Vector2(500, 260),
-"name": &"PlainsMask",
-"type": "Smoothstep"
-},
-"33": {
-"auto_connect": false,
-"edge0": 0.35,
-"edge1": 0.65,
-"gui_position": Vector2(500, 340),
-"name": &"HillMask",
-"type": "Smoothstep"
-},
-"34": {
-"auto_connect": false,
-"edge0": 0.65,
-"edge1": 0.95,
-"gui_position": Vector2(500, 420),
-"name": &"MountainMask",
-"type": "Smoothstep"
+"gui_position": Vector2(440, 250),
+"type": "InputZ"
 },
 "4": {
 "auto_connect": true,
-"gui_position": Vector2(1780, 520),
+"gui_position": Vector2(900, 160),
 "type": "OutputSDF"
 },
-"53": {
-"auto_connect": false,
-"gui_position": Vector2(1580, 520),
-"smoothness": 0.0,
-"type": "SdfSmoothUnion"
-},
-"54": {
+"5": {
 "auto_connect": true,
-"gui_position": Vector2(1380, 640),
+"gui_position": Vector2(720, 160),
 "height": 0.0,
-"type": "SdfPlane",
-"y": 0.0
-},
-"6": {
-"auto_connect": true,
-"gui_position": Vector2(500, -60),
-"noise": SubResource("ZN_FastNoiseLite_kf3o1"),
-"type": "FastNoise2D",
-"x": 0.0,
-"y": 0.0
-},
-"7": {
-"auto_connect": false,
-"b": 80.0,
-"gui_position": Vector2(700, -60),
-"name": &"Height Constant",
-"type": "Multiply"
-},
-"8": {
-"auto_connect": false,
-"b": 10.0,
-"gui_position": Vector2(940, -60),
-"name": &"Bias for Ocean Height",
-"type": "Add"
-},
-"9": {
-"auto_connect": true,
-"gui_position": Vector2(1380, 520),
-"type": "SdfPlane",
-"y": 0.0
+"type": "SdfPlane"
 }
 },
 "version": 2
 }
 
-[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_dm78r"]
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_krij7"]
 
-[sub_resource type="Resource" id="Resource_krij7"]
-script = ExtResource("6_kf3o1")
-slot_datas = Array[ExtResource("10_krij7")]([null, null, null, null])
-metadata/_custom_type_script = "uid://3h3q174pv1vt"
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krij7"]
+albedo_texture = ExtResource("3_kf3o1")
+uv1_triplanar = true
 
 [sub_resource type="Resource" id="Resource_q8t4i"]
 script = ExtResource("10_krij7")
@@ -219,6 +87,11 @@ script = ExtResource("10_krij7")
 item_data = ExtResource("11_ygy3j")
 metadata/_custom_type_script = "uid://dynsmxrsmg7dw"
 
+[sub_resource type="Resource" id="Resource_krij7"]
+script = ExtResource("6_kf3o1")
+slot_datas = Array[ExtResource("10_krij7")]([null, null, null, null])
+metadata/_custom_type_script = "uid://3h3q174pv1vt"
+
 [node name="Cavetest" type="Node3D" unique_id=256993951 groups=["main"]]
 script = ExtResource("1_0ig4v")
 
@@ -233,13 +106,23 @@ environment = SubResource("Environment_krij7")
 
 [node name="VoxelLodTerrain" type="VoxelLodTerrain" parent="." unique_id=1679347255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
-generator = SubResource("VoxelGeneratorGraph_dm78r")
-mesher = SubResource("VoxelMesherTransvoxel_dm78r")
+generator = SubResource("VoxelGeneratorGraph_kf3o1")
+mesher = SubResource("VoxelMesherTransvoxel_krij7")
+view_distance = 1500
+material = SubResource("StandardMaterial3D_krij7")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1982527116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535.11957, 140.62585, 100.640884)
 use_collision = true
 size = Vector3(14, 1, 16)
+
+[node name="Chest" parent="CSGBox3D" unique_id=1231050297 instance=ExtResource("8_vabsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50465393, 4.485771)
+inventory_data = SubResource("Resource_q4en3")
+
+[node name="Pickup" parent="CSGBox3D" unique_id=1766522287 instance=ExtResource("11_8em8x")]
+transform = Transform3D(0.14473619, 0, 0.9894703, 0, 1, 0, -0.9894703, 0, 0.14473619, -2.5148926, 1.2594757, 2.4016495)
+slot_data = SubResource("Resource_8em8x")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1194833635]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700.9489, -91.7014, -483.2567)
@@ -253,14 +136,6 @@ equip_inventory_data = SubResource("Resource_krij7")
 
 [node name="VoxelViewer" type="VoxelViewer" parent="PlayerCharacter" unique_id=698351579]
 enabled_in_editor = true
-
-[node name="Chest" parent="." unique_id=1231050297 instance=ExtResource("8_vabsh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7901144, -45.411304, -3.6647713)
-inventory_data = SubResource("Resource_q4en3")
-
-[node name="Pickup" parent="." unique_id=1766522287 instance=ExtResource("11_8em8x")]
-transform = Transform3D(0.14473619, 0, 0.9894703, 0, 1, 0, -0.9894703, 0, 0.14473619, -3.0077899, -44.94981, 0.41384196)
-slot_data = SubResource("Resource_8em8x")
 
 [connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
